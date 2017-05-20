@@ -197,7 +197,6 @@ class PhoneCatalogue {
     let phoneItemElement = phoneLink.closest('[data-element="phone-item"]');
     let selectedPhoneId = phoneItemElement.dataset.phoneId;
 
-    alert(this);
     this.trigger('phoneSelected',selectedPhoneId);
 
 
