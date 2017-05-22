@@ -1,0 +1,23 @@
+{
+  "name": "static-phone-shop",
+  "version": "1.0.0",
+  "description": "A small study project on JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerryngtonD/Phone_shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JerryngtonD/Phone_shop/issues"
+  },
+  "homepage": "https://github.com/JerryngtonD/Phone_shop#readme",
+  "devDependencies": {
+    "node-static": "^0.7.9"
+  }
+}

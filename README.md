@@ -1,2 +1,7 @@
 # Phone_shop
-A small study project on JS
+
+npm install 
+npm start
+
+
+open: localhost:3000/public
