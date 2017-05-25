@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
+
   <title>Title</title>
 
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"defer></script>
@@ -63,11 +65,13 @@
   <button data-element="add-to-basket"> add to basket </button>
 
     <img class="phone"
+
             src="<%= phone.images[0] %>">
 
     <h1><% phone.name %></h1>
 
 <p> <%= phone.description %></p>
+
 <ul class="phone-thumbs">
     <% phone.images.forEach(imageLink => { %>
 
@@ -83,7 +87,7 @@
 
 <script type="text/template" id="phone-catalogue-template">
 
-  <ul class="phones">;
+  <ul class="phones">
 
     <%phones.forEach((phone) => { %>
     <li class="thumbnail"
@@ -106,7 +110,7 @@
       <p><%= phone.snippet%> </p>
 
     </li>
-    `
+
     <%}); %>
 
     </ul>

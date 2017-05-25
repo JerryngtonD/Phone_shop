@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 class PhoneViewer extends Component {
     constructor(options) {
@@ -9,6 +9,8 @@ class PhoneViewer extends Component {
 
         this._el.addEventListener('click',this._onBackClick.bind(this));
         this._el.addEventListener('click',this._onAddToBasketClick.bind(this));
+
+
 
     }
 
