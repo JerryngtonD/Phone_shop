@@ -76,7 +76,7 @@
     <% phone.images.forEach(imageLink => { %>
 
     <li>
-    <img src="<%= imageLink %>">
+    <img src="<%=imageLink %>">
     </li>
 
     <% }); %>
@@ -92,7 +92,7 @@
     <%phones.forEach((phone) => { %>
     <li class="thumbnail"
         data-element="phone-item"
-        data-phone-id="<%= phone.id%> " >
+        data-phone-id="<%= phone.id%>" >
 
       <a href="#!/phones/<%= phone.id%> "
          class="thumb"
@@ -118,7 +118,7 @@
 </script>
 
 <script type="text/template" id="shopping-cart-template">
-  <h4> <%=title %> </h4>
+  <h4> <%=title%> </h4>
 
   <%if (items.length) { %>
 

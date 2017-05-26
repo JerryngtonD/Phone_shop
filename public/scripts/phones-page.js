@@ -38,12 +38,11 @@ class PhonesPage {
   _onPhoneSelected(event) {
 
       let phoneId = event.detail;
-      alert(window.location.href);
-      alert(phoneId);
+
 
       let xhr = new XMLHttpRequest();
 
-      xhr.open('GET', `/data/phones/${phoneId}.json`, true);
+      xhr.open('GET',`/data/phones/${phoneId}.json`, true);
 
       xhr.send();
 
@@ -52,8 +51,6 @@ class PhonesPage {
               alert(xhr.status + ': ' + xhr.statusText);
           } else {
               let phoneDetails = JSON.parse(xhr.responseText);
-
-              alert(1);
               this._viewer.showPhone(phoneDetails);
               this._catalogue.hide();
           }
