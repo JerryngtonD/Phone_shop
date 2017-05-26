@@ -76,7 +76,7 @@
     <% phone.images.forEach(imageLink => { %>
 
     <li>
-    <img src="<%=imageLink %>">
+    <img src="<%= imageLink %>">
     </li>
 
     <% }); %>
@@ -98,11 +98,11 @@
          class="thumb"
          data-element = "phone-link">
 
-        <img alt="<%= phone.name%> "
-             src="<%= phone.imageUrl%> ">
+        <img alt="<%= phone.name%>"
+             src="<%= phone.imageUrl%>">
       </a>
 
-      <a href="#!/phones/<%= phone.id%> "
+      <a href="#!/phones/<%= phone.id%>"
          data-element = "phone-link">
         <%= phone.name%> 
       </a>

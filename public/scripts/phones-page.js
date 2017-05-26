@@ -42,6 +42,7 @@ class PhonesPage {
 
       let xhr = new XMLHttpRequest();
 
+      alert(`/data/phones/${phoneId}.json`);
       xhr.open('GET',`/data/phones/${phoneId}.json`, true);
 
       xhr.send();
