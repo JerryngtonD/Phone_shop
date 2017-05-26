@@ -164,7 +164,8 @@ class PhoneCatalogue extends Component {
     this._templateFunction  = _.template(this._template);
     this._el.addEventListener('click',this._onPhoneClick.bind(this));    // this is place for listening inrequited
 
-    this._render(this._getPhones())
+      this._loadPhones();
+
   }
 
 
@@ -196,13 +197,18 @@ class PhoneCatalogue extends Component {
 
 
     let html =  this._templateFunction({
-        phones: phones
+        phones: this._phones
     });
 
     this._el.innerHTML = html;
   }
 
-  _getPhones() {
-    return phonesFromServer;
-  }
+    _loadPhones() {
+        HttpService.getJSON(`/data/phones/phones.json`,(phones) => {
+            this._phones = phones;
+            this._render();
+        });
+    }
+
+
 }

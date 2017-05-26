@@ -35,27 +35,16 @@ class PhonesPage {
   }
 
 
+
   _onPhoneSelected(event) {
 
       let phoneId = event.detail;
 
+      HttpService.getJSON(`/data/phones/${phoneId}.json`, (phoneDetails) => {
+          this._catalogue.hide();
+          this._viewer.showPhone(phoneDetails);
+      });
 
-      let xhr = new XMLHttpRequest();
-
-      alert(`/data/phones/${phoneId}.json`);
-      xhr.open('GET',`/data/phones/${phoneId}.json`, true);
-
-      xhr.send();
-
-      xhr.onload = () => {
-          if (xhr.status !== 200) {
-              alert(xhr.status + ': ' + xhr.statusText);
-          } else {
-              let phoneDetails = JSON.parse(xhr.responseText);
-              this._viewer.showPhone(phoneDetails);
-              this._catalogue.hide();
-          }
-      };
   }
 
 }
