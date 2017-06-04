@@ -13,6 +13,8 @@ class PhonesPage {
         el: this._el.querySelector('[data-component="phone-catalogue"]')
     });
 
+    this._loadPhones();
+
       this._viewer = new PhoneViewer({
           el: this._el.querySelector('[data-component="phone-viewer"]')
       });
@@ -26,10 +28,22 @@ class PhonesPage {
       this._catalogue.show();
     });
 
+    this._search = new Search({
+        el: this._el.querySelector('[data-component="search"]')
+    });
+
       this._viewer.on('add',(event) => {
         let phoneDetails = event.detail;
 
           this._cart.addItem(phoneDetails);
+      });
+
+
+      this._search.on('valueChanged', (event) => {
+          let searchValue = event.detail;
+
+          this._loadPhones(searchValue)
+
       });
 
   }
@@ -46,5 +60,33 @@ class PhonesPage {
       });
 
   }
+
+
+  _loadPhones(query){
+      let url = `/data/phones/phones.json`;
+
+      this._catalogue.showPhones([]);
+      if (query)  {
+          url +=`?query=${query}`;
+      }
+
+      HttpService.getJSON(url,(phones) => {
+          // untill our server can filter phones
+          let filterPhones = this._filterPhones(phones,query);
+             this._catalogue.showPhones(filterPhones)
+          });
+      }
+
+      _filterPhones(phones,query) {
+      if (!query) {
+          return phones;
+      }
+
+      let normalizedQery = query.toLowerCase();
+          return phones.filter((phone) => {
+              return phone.name.toLowerCase().includes(normalizedQery);
+
+          })
+      }
 
 }

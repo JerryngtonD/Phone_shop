@@ -11,7 +11,7 @@ function accept(request,response) {
         setTimeout(() => {
             file.serve(request,response);
 
-        },3000);
+        },2000);
 
     } else {
         request.url = '/public' + request.url;
