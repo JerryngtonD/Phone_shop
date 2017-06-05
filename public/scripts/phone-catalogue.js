@@ -185,17 +185,13 @@ class PhoneCatalogue extends Component {
 
     this.trigger('phoneSelected',selectedPhoneId);
 
+    phoneItemElement.onmouseleave = () => {
+            this.trigger('extraAction');
 
+            phoneItemElement.onmouseleave = null;
+        };
 
-
-
-
-    if(!phoneItemElement) {
-      return
     }
-
-
-  }
 
 
   _render() {
