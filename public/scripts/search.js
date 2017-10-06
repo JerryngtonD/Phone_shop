@@ -14,7 +14,7 @@ class Search extends Component {
                 if (new Date() - this._lastCalled >= delay ) {
                     this.trigger('valueChanged', this._field.value)
                 }
-            },delay);
+            }, delay);
 
 
         });
