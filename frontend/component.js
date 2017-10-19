@@ -1,4 +1,6 @@
-class  Component {
+'use strict';
+
+export class Component {
     constructor(rootElement) {
         this._el = rootElement;
     }

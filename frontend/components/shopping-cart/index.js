@@ -1,9 +1,12 @@
-'use strict'
+'use strict';
 
-class  ShoppingCart {
+import { Component } from './../../component'
+
+export class ShoppingCart extends Component {
     constructor(options) {
+        super(options.el);
         this._el = options.el;
-        this._template = document.querySelector('#shopping-cart-template').innerHTML;
+        this._template = require('./template.html');
         this._templateFunction = _.template(this._template);
 
         this._items = [];

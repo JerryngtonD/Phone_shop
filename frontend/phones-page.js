@@ -1,6 +1,12 @@
 'use strict';
 
-class PhonesPage {
+import  { ShoppingCart } from './components/shopping-cart';
+import  { PhoneCatalogue } from './components/phone-catalogue';
+import  { PhoneViewer  } from './components/phone-viewer';
+import { Search } from './components/search';
+
+
+export class PhonesPage {
   constructor(options) {
     this._el = options.el;
 
@@ -50,7 +56,17 @@ class PhonesPage {
 
   _onPhoneSelected(event) {
       let phoneId = event.detail;
-      let loadPhonePromise = HttpService.getJSON(`/data/phones/${phoneId}.json`);
+      var loadPhonePromise = fetch(`/data/phones/${phoneId}.json`)
+          .then((response) => {
+                  if (response.status == 200) {
+                      return response.json()
+                  }
+                  else {
+                      Promise.reject('something went wrong')
+                  }
+
+              }
+          );
 
 
       let extraActionPromise = new Promise(
@@ -99,7 +115,15 @@ class PhonesPage {
           url +=`?query=${query}`;
       }
 
-      HttpService.getJSON(url)
+      fetch(url)
+          .then((response) => {
+            if (response.status == 200) {
+                return response.json()
+            }
+            else {
+                Promise.reject('something went wrong')
+            }
+          })
           .then (
               (phones) => {
                   // untill our server can filter phones

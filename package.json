@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/JerryngtonD/Phone_shop#readme",
   "devDependencies": {
-    "node-static": "^0.7.9"
+    "node-static": "^0.7.9",
+    "raw-loader": "^0.5.1",
+    "webpack": "^3.7.1"
   }
 }
