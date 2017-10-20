@@ -1,13 +1,14 @@
 'use strict';
 
-import { Component } from './../../component'
+import { Component } from './../../component';
+import template from 'lodash.template';
 
 export class ShoppingCart extends Component {
     constructor(options) {
         super(options.el);
         this._el = options.el;
         this._template = require('./template.html');
-        this._templateFunction = _.template(this._template);
+        this._templateFunction = template(this._template);
 
         this._items = [];
         this.render();

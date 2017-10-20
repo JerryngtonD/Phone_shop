@@ -1,5 +1,6 @@
 var path = require('path');
 let webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry:  './frontend/app.js',
@@ -15,12 +16,46 @@ module.exports = {
         rules: [
             {
                 test:/\.html$/,
-                use: {
-                    loader: 'raw-loader',
-                }
+                loader: 'raw-loader',
 
+            },
+
+            {
+                test: /\.hbs$/,
+                loader: "handlebars-loader"
+            },
+
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" }
+                ]
+            },
+
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             }
 
         ]
     },
+
+    plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true,
+        })
+    ],
+
+    devServer: {
+        proxy: {
+            '*': 'http://localhost:3000'
+        }
+    }
 };
